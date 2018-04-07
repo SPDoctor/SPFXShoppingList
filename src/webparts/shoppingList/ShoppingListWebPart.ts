@@ -7,9 +7,16 @@ import {
   PropertyPaneTextField
 } from '@microsoft/sp-webpart-base';
 
+//import * as strings from 'ShoppingListWebPartStrings';
 import ShoppingList from './components/ShoppingList';
 import { IShoppingListProps } from './components/IShoppingListProps';
-import { IShoppingListWebPartProps } from './IShoppingListWebPartProps';
+
+export interface IShoppingListWebPartProps {
+  description: string;
+  title: string;
+  listName: string;
+  context: any;
+}
 
 export default class ShoppingListWebPart extends BaseClientSideWebPart<IShoppingListWebPartProps> {
 

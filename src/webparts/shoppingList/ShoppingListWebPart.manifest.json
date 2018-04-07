@@ -1,22 +1,26 @@
 {
-  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
-
-  "id": "3cd762ba-b164-4f34-a085-e6e44b25b16e",
+  "$schema": "https://dev.office.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "6fb845b9-5ac4-4f69-955a-70e68957b813",
   "alias": "ShoppingListWebPart",
   "componentType": "WebPart",
-  "version": "0.0.1",
+
+  // The "*" signifies that the version should be taken from the package.json
+  "version": "*",
   "manifestVersion": 2,
 
+  // If true, the component can only be installed on sites where Custom Script is allowed.
+  // Components that allow authors to embed arbitrary script code should set this to true.
+  // https://support.office.com/en-us/article/Turn-scripting-capabilities-on-or-off-1f2c515f-5d7e-448a-9fd7-835da935584f
+  "requiresCustomScript": false,
+
   "preconfiguredEntries": [{
-    "groupId": "3cd762ba-b164-4f34-a085-e6e44b25b16e",
-    "group": { "default": "Under Development" },
+    "groupId": "5c03119e-3074-46fd-976b-c60198311f70", // Other
+    "group": { "default": "Other" },
     "title": { "default": "ShoppingList" },
-    "description": { "default": "Demo web part based on a SharePoint list" },
+    "description": { "default": "ShoppingList description" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "ShoppingList",
-      "title": "Shopping List",
-      "listName": "ShoppingList"
+      "description": "ShoppingList"
     }
   }]
 }

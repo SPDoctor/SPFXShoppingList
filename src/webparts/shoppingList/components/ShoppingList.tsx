@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { IShoppingListProps } from './IShoppingListProps';
 import * as fabric from 'office-ui-fabric-react'; // should just import needed modules for production use
-import * as pnp from 'sp-pnp-js';
+import { sp, Web } from "@pnp/sp";
 import { Environment, EnvironmentType } from '@microsoft/sp-core-library';
-import { IShoppingListWebPartProps } from '../IShoppingListWebPartProps';
+import { IShoppingListWebPartProps } from '../ShoppingListWebPart';
 
 export interface IShoppingListProps extends IShoppingListWebPartProps {
 }
@@ -24,9 +24,10 @@ export default class ShoppingList extends React.Component<IShoppingListProps, {}
     if (!(Environment.type === EnvironmentType.Local)) {
       that.setState({ SpinnerVisible: true });
       // make sure we are on the correct web...
-      var web = new pnp.Web(this.props.context.pageContext.web.absoluteUrl);
-      web.lists.getByTitle(this.props.listName).items.usingCaching().get().then(result => {
-        var items: any = result.map(r => r.Title);
+      var web = new Web(this.props.context.pageContext.web.absoluteUrl);
+      //caching version:  web.lists.getByTitle(this.props.listName).items.usingCaching().get().then(result => {
+      web.lists.getByTitle(this.props.listName).items.get().then(result => {
+          var items: any = result.map(r => r.Title);
         that.setState({ Items: items });
         that.setState({ SpinnerVisible: false });
       });
@@ -44,7 +45,7 @@ export default class ShoppingList extends React.Component<IShoppingListProps, {}
   private addData(text: string) {
     var that: any = this; // save 'this' so it is available from within the closure
     if (!(Environment.type === EnvironmentType.Local)) {
-      var web = new pnp.Web(this.props.context.pageContext.web.absoluteUrl);
+      var web = new Web(this.props.context.pageContext.web.absoluteUrl);
       web.lists.getByTitle(this.props.listName).items.add({Title: text}).then(() => {
         that.getData();
       });

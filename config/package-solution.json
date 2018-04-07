@@ -1,8 +1,10 @@
 {
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
   "solution": {
     "name": "shopping-list-client-side-solution",
-    "id": "80d8b21c-023a-4d3c-a11a-0016b72dda1f",
-    "version": "1.0.0.0"
+    "id": "1a22391c-a4fd-409f-9d5a-5ad308b74193",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
   },
   "paths": {
     "zippedPackage": "solution/shopping-list.sppkg"

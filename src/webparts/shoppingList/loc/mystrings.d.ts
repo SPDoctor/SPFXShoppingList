@@ -1,10 +1,10 @@
-declare interface IShoppingListStrings {
+declare interface IShoppingListWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
 }
 
-declare module 'shoppingListStrings' {
-  const strings: IShoppingListStrings;
+declare module 'ShoppingListWebPartStrings' {
+  const strings: IShoppingListWebPartStrings;
   export = strings;
 }
